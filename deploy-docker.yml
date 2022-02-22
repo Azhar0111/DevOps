@@ -21,8 +21,8 @@
         state: present
     - name: Start the container
       docker_container:
-        name: azharapp
-        image: "azhar0111/azharapp:1.1.1"
+        name: hariapp
+        image: "azhar0111/azharapp:1.1.0"
         state: started
         published_ports:
-          - 0.0.0.0:9080:9080
+          - 0.0.0.0:8080:8080
