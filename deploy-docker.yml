@@ -22,7 +22,7 @@
     - name: Start the container
       docker_container:
         name: azharapp
-        image: "ec2-13-235-79-95.ap-south-1.compute.amazonaws.com:5000/azharapp:1.1.1"
+        image: "ec2-3-111-82-19.ap-south-1.compute.amazonaws.com:5000/azharapp:1.1.1"
         state: started
         published_ports:
           - 0.0.0.0:8080:8080
