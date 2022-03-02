@@ -26,3 +26,6 @@
         state: started
         published_ports:
           - 0.0.0.0:8080:8080
+    - name: Anchore Compliance
+      shell:
+         "docker pull anchore/grype:v0.17"
