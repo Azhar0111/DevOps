@@ -29,3 +29,6 @@
     - name: Anchore Compliance Image pull
       shell:
          "docker pull anchore/grype:v0.17"
+    - name: Anchore Compliance Verify
+      shell:
+         "docker run -it --rm anchore/grype:v0.17 alpine:latest"
