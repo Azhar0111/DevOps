@@ -26,7 +26,9 @@
         state: started
         published_ports:
           - 0.0.0.0:8080:8080
-    - name: Anchore Compliance
+    - name: Anchore Compliance Image pull
       shell:
          "docker pull anchore/grype:v0.17"
+    - name: Anchore Compliance Verify
+      shell:
          "docker run -it --rm anchore/grype:v0.17 34.93.181.248:5000/azharapp:1.1.1"
