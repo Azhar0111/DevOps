@@ -29,4 +29,4 @@
     - name: Anchore Compliance
       shell:
          "docker pull anchore/grype:v0.17"
-         " docker run --rm anchore/grype:v0.17 34.93.181.248:5000/azharapp:1.1.1 > /home/ec2-user/op.txt "
+         "docker run -it --rm anchore/grype:v0.17 34.93.181.248:5000/azharapp:1.1.1"
