@@ -4,4 +4,4 @@
   tasks:
     - name: DAST Scan
       shell:
-         "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://52.66.116.195:8080/dockeransible/ --autooff"
+         "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://13.233.207.190:8080/dockeransible/ --autooff"
