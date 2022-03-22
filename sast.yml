@@ -2,8 +2,10 @@
 - hosts: dev
   become: True
   tasks:
-    - name: SAST Scan
-      shell: |
+    - name: Login
+      shell:
           "docker login -u azhar0111 -p azhar42094"
+    - name: SAST Scan
+      shell:
           #docker run -it --rm anchore/grype:v0.17 azhar0111/azharapp:1.1.0
           "pwd"
