@@ -2,6 +2,6 @@
 - hosts: dev
   become: True
   tasks:
-    - name: Login
+    - name: SAST
       shell:
           "bash /home/ec2-user/sast.sh"
