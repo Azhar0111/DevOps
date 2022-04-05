@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: azharapp
-        image: 34.100.253.138:5000/azharapp:1.1.1
+        image: azhar0111/azharapp:1.1.0
 ---
 apiVersion: v1
 kind: Service
