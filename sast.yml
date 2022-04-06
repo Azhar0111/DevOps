@@ -5,3 +5,4 @@
     - name: SAST
       shell:
           "bash /home/ec2-user/sast.sh"
+#
