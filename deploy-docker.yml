@@ -22,7 +22,7 @@
     - name: Start the container
       docker_container:
         name: azharapp
-        image: "34.100.253.138:5000/azharapp:1.1.1"
+        image: "34.100.253.138:5000/azharapp:latest"
         state: started
         published_ports:
           - 0.0.0.0:8080:8080
