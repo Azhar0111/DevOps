@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+     
+    stages {
+      stage('GIT') {
+           steps {
+                git branch: 'main', credentialsId: 'git-azh', url: 'https://github.com/Azhar0111/devops'
+          }
+        }
+
+          stage('Maven Build') {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+        
+          stage('War File Upload') {
+            steps {
+                nexusArtifactUploader artifacts: [[artifactId: 'dockeransible', classifier: '', file: 'target/dockeransible.war', type: 'war']], credentialsId: 'nexus3', groupId: 'in.javahome', nexusUrl: 'ec2-3-111-82-19.ap-south-1.compute.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'azharapp-war', version: '1.0-SNAPSHOT'
+            }
+        }
+        
+        stage('Docker Build') {
+            steps {
+                sh "docker build -t ec2-3-111-82-19.ap-south-1.compute.amazonaws.com:5000/azharapp:1.1.1 . "
+            }
+        }
+        
+        stage('Docker Push') {
+            steps {
+                sh " docker login -u admin -p admin ec2-3-111-82-19.ap-south-1.compute.amazonaws.com:5000 "
+                sh "docker push ec2-3-111-82-19.ap-south-1.compute.amazonaws.com:5000/azharapp:1.1.1 "
+            }
+        }
+        
+        stage('Docker Deploy') {
+            steps {
+                ansiblePlaybook credentialsId: 'ansi-dev', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
+            }
+        }
+    }
+}
